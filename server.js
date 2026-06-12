@@ -19,11 +19,11 @@ const OUTPUT_DIR = path.join(__dirname, "outputs");
 });
 
 // CORS
-const allowedOrigins = process.env.CLIENT_URL
-  ? [process.env.CLIENT_URL]
-  : ["http://localhost:5173"];
-
-app.use(cors({ origin: allowedOrigins }));
+app.use(cors({
+  origin: 'https://status-fix-client.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+}));
 app.use(express.json());
 
 // Multer — 50MB raw input limit
